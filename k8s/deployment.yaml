@@ -16,13 +16,13 @@ spec:
     spec:
       containers:
         - name: i27-comment
-          image: bynramu/i27helpdesk-comment:v1
+          image: ${IMAGE}
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8083
           envFrom:
             - secretRef:
-                name: i27-comment-dev
+                name: ${SECRET_NAME}
           readinessProbe:
             httpGet:
               path: /readyz
